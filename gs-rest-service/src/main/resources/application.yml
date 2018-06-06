@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active:
+      - local
+#      - real
+      
+  application:
+    name: rest-sample-server
+
+server:
+  port: 8088
+
+---
+spring:
+  profiles : local
+
+---
+spring:
+  profiles : real
+  
+---
+
+#
+# logging for logback (logback.xml)
+#
+logging:
+  config: classpath:logback-spring.xml
+  path: logs/
+  level:
+    root: INFO
