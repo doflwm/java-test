@@ -3,6 +3,7 @@
 
     <property name="log.file.name" value="server.log" />
     <property name="log.file.name.error" value="server_error.log" />
+    <property name="log.file.name.content" value="content.log" />
     <property name="log.dir" value="./logs" />
     
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -42,6 +43,26 @@
         </encoder>
     </appender>
     
+	<appender name="dailyRollingFileAppenderContent" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.dir}/${log.file.name.content}</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <FileNamePattern>${log.dir}/${log.file.name.content}.%d{yyyy-MM-dd}</FileNamePattern>
+            <!-- keep 10 days' worth of history -->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <logger name="ContentLogger" level="INFO" additivity="false">
+        <appender-ref ref="dailyRollingFileAppenderContent"/>
+    </logger>
+
 	<root level="INFO">
 		<!-- <appender-ref ref="CONSOLE" /> -->
 		<appender-ref ref="dailyRollingFileAppender"/>
