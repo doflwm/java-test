@@ -22,6 +22,8 @@ public abstract class DeployBaseController {
     				, "info/basecategory"
     				, "info/channel"
     				, "info/product"
+    				, "info/channelSchedules"
+    				, "info/basecategoryAndChildren"
     				}
     		, method = {RequestMethod.GET, RequestMethod.POST})
     public String process(@RequestBody String in) {
