@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spring-data-jpa
+
+# logging:
+#   config: classpath:logback-spring.xml
+#   path: logs/
+#   level:
+#     root: INFO
