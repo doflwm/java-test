@@ -42,7 +42,7 @@ public abstract class DeployBaseController {
     	
     	String baseUrl = uri.substring(uri.indexOf("/v1"));
 
-    	log(baseUrl, in);
+    	log(getTag(), baseUrl, in);
     	
     	return ("OK");
     }
@@ -57,28 +57,30 @@ public abstract class DeployBaseController {
     	
     	String baseUrl = uri.substring(uri.indexOf("/v1"));
 
-    	log(baseUrl, in);
+    	log(getTag(), baseUrl, in);
     	
     	return ("OK");
     }
 
-    protected void log(String baseUrl, String in) {
-    	logNormal(baseUrl, in);
-    	logJson(baseUrl, in);
+    protected void log(String tag, String baseUrl, String in) {
+    	logNormal(tag, baseUrl, in);
+    	logJson(tag, baseUrl, in);
     }
     
-    protected void logNormal(String baseUrl, String in) {
+    protected void logNormal(String tag, String baseUrl, String in) {
+//    	contentLogger.info(tag);
     	contentLogger.info(baseUrl);
     	contentLogger.info(in);
     }
     
-    protected void logJson(String baseUrl, String json) {
+    protected void logJson(String tag, String baseUrl, String json) {
     	JsonParser jp = new JsonParser();
     	JsonElement je = jp.parse(json);
     	
     	Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
     	String prettyJson = gson.toJson(je);
 
+//    	prettyLogger.info(tag);
     	prettyLogger.info(baseUrl);
     	prettyLogger.info(prettyJson);
     }

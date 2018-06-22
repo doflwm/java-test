@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/recommand/v1")
-public class DeployRecommandController extends DeployBaseController {
-    private static final Logger logger = LoggerFactory.getLogger(DeployRecommandController.class);
+@RequestMapping(path="/rec/v1")
+public class DeployRecController extends DeployBaseController {
+    private static final Logger logger = LoggerFactory.getLogger(DeployRecController.class);
 
 	private static final String TAG = "REC";
 	

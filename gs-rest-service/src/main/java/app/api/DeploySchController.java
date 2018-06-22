@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/search/v1")
-public class DeploySearchController extends DeployBaseController {
-    private static final Logger logger = LoggerFactory.getLogger(DeploySearchController.class);
+@RequestMapping(path="/src/v1")
+public class DeploySchController extends DeployBaseController {
+    private static final Logger logger = LoggerFactory.getLogger(DeploySchController.class);
 
-	private static final String TAG = "SRC";
+	private static final String TAG = "SCH";
 	
 	protected Logger getLogger() {
 		return logger;
